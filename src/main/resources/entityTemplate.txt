@@ -1,0 +1,29 @@
+ 
+package packageName;
+
+import java.io.Serializable;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.*;
+
+import java.lang.String;
+import java.lang.Integer;
+import java.util.Date;
+import java.util.List;
+
+
+@Data
+public class ClassName implements Serializable{
+
+
+	//========== properties ==========
+
+	@Id
+PropertiesForChange
+
+
+}

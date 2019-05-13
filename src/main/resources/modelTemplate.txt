@@ -1,0 +1,66 @@
+package com.insigma.impl;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import tk.mybatis.mapper.entity.Example;
+
+import java.util.Date;
+import java.util.List;
+
+
+public class ClassNameServiceImpl implements ClassNameFacade {
+
+    @Autowired
+    ClassNameMapper ClassNameMapper;
+
+    @Override
+    public PageInfo<ClassName> getClassNameList(ClassNameListVO ClassNameListVO) {
+        if (ClassNameListVO==null||ClassNameListVO.getPageNum()==null||ClassNameListVO.getPageSize()==null) {
+            return null;
+        }
+        PageHelper.startPage(ClassNameListVO.getPageNum().intValue(),ClassNameListVO.getPageSize().intValue());
+        ClassName exampleObeject=new ClassName();
+        List<ClassName> ClassNameList=ClassNameMapper.select(exampleObeject);
+        PageInfo<ClassName> ClassNamePageInfo=new PageInfo<>(ClassNameList);
+        return ClassNamePageInfo;
+    }
+
+    @Override
+    public ClassName getClassNameDetail(ClassNameDetailVO ClassNameDetailVO) {
+        if (ClassNameDetailVO==null||ClassNameDetailVO.getId()==null) {
+            return null;
+        };
+        ClassName ClassName=ClassNameMapper.selectByPrimaryKey(ClassNameDetailVO.getId());
+        return ClassName;
+    }
+
+    @Override
+    public Integer saveClassName(ClassNameSaveVO ClassNameSaveVO) {
+        if (ClassNameSaveVO==null){
+            return 0;
+        }
+        ClassName ClassName= JSONUtil.convert(ClassNameSaveVO,ClassName.class);
+        if (ClassName.getId()==null){
+            return ClassNameMapper.insertSelective(ClassName);
+        }else {
+            ClassName.setModifyTime(new Date());
+            Example example=new Example(ClassName.class);
+            example.createCriteria().andEqualTo("id",ClassName.getId());
+            return ClassNameMapper.updateByExampleSelective(ClassName,example);
+        }
+    }
+
+    @Override
+    public Integer deleteClassName(ClassNameDeleteVO ClassNameDeleteVO) {
+        if (ClassNameDeleteVO==null||ClassNameDeleteVO.getId()==null){
+            return 0;
+        }
+        ClassName ClassName=new ClassName();
+        ClassName.setModifyTime(new Date());
+        ClassName.setIsDelete(ClassNameDeleteVO.getIsDelete());
+        Example example=new Example(ClassName.class);
+        example.createCriteria().andEqualTo("id",ClassNameDeleteVO.getId());
+        return ClassNameMapper.updateByExampleSelective(ClassName,example);
+    }
+}

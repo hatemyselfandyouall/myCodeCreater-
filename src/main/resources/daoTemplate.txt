@@ -1,0 +1,13 @@
+ 
+package packageName.dao;
+
+import packageName.ClassName;
+import tk.mybatis.mapper.common.Mapper;
+
+ 
+public interface ClassNameMapper extends Mapper<ClassName>{
+
+		
+		
+ 
+}

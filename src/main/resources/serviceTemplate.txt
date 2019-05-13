@@ -1,0 +1,23 @@
+ 
+package packageName.model;
+
+import com.github.pagehelper.PageInfo;
+
+
+ 
+
+    public interface ClassNameFacade{
+
+	PageInfo<ClassName> getClassNameList(ClassNameListVO listVO);
+
+    ClassName getClassNameDetail(ClassNameDetailVO detailVO);
+
+    Integer saveClassName(ClassNameSaveVO saveVO);
+
+    Integer deleteClassName(ClassNameDeleteVO deleteVO);
+
+	 
+
+}
+
+ 
