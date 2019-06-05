@@ -1,27 +1,7 @@
 package com.gzd.mapperComparetor;
 
-import com.ucmed.common.waybill.model.SampleInfoModel;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.converter.PicturesManager;
-import org.apache.poi.hwpf.converter.WordToHtmlConverter;
-import org.apache.poi.hwpf.usermodel.Picture;
-import org.apache.poi.hwpf.usermodel.PictureType;
-import org.docx4j.XmlUtils;
-import org.docx4j.convert.out.html.HTMLConversionImageHandler;
-import org.docx4j.convert.out.html.HtmlExporterNonXSLT;
-import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.springframework.ui.ModelMap;
-import org.w3c.dom.Document;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
@@ -34,12 +14,12 @@ import java.util.List;
  */
 public class PDFCompareUtil {
 
-	private static String LOCAL_URL="jdbc:mysql://115.159.113.37:3306/jypt?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true";
-	private static String LOCAL_USERNAME="ucmed";
-	private static String LOCAL_PASSWORD="TiAw0@dae6r4Vnb";
-	private static String WORK_URL="jdbc:mysql://123.206.217.254:3306/jypt?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true";
-	private static String WORK_USERNAME="jypt";
-	private static String WORK_PASSWORD="V#OPFOIlsDv2!pV";
+	private static String LOCAL_URL="jdbc:mysql://192.168.1.14/workflow?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
+	private static String LOCAL_USERNAME="workflow";
+	private static String LOCAL_PASSWORD="Epsoft2019";
+	private static String WORK_URL="jdbc:mysql://10.85.94.191:3306/workflow?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
+	private static String WORK_USERNAME="workflow";
+	private static String WORK_PASSWORD="Epsoft2019";
 
 	public static void compare() throws IOException {
 

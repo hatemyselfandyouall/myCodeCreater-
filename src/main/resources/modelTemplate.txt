@@ -12,55 +12,55 @@ import java.util.List;
 public class ClassNameServiceImpl implements ClassNameFacade {
 
     @Autowired
-    ClassNameMapper ClassNameMapper;
+    ClassNameMapper LowCaseClassNameMapper;
 
     @Override
-    public PageInfo<ClassName> getClassNameList(ClassNameListVO ClassNameListVO) {
-        if (ClassNameListVO==null||ClassNameListVO.getPageNum()==null||ClassNameListVO.getPageSize()==null) {
+    public PageInfo<ClassName> getClassNameList(ClassNameListVO LowCaseClassNameListVO) {
+        if (LowCaseClassNameListVO==null||LowCaseClassNameListVO.getPageNum()==null||LowCaseClassNameListVO.getPageSize()==null) {
             return null;
         }
-        PageHelper.startPage(ClassNameListVO.getPageNum().intValue(),ClassNameListVO.getPageSize().intValue());
+        PageHelper.startPage(LowCaseClassNameListVO.getPageNum().intValue(),LowCaseClassNameListVO.getPageSize().intValue());
         ClassName exampleObeject=new ClassName();
-        List<ClassName> ClassNameList=ClassNameMapper.select(exampleObeject);
-        PageInfo<ClassName> ClassNamePageInfo=new PageInfo<>(ClassNameList);
-        return ClassNamePageInfo;
+        List<ClassName> LowCaseClassNameList=LowCaseClassNameMapper.select(exampleObeject);
+        PageInfo<ClassName> LowCaseClassNamePageInfo=new PageInfo<>(LowCaseClassNameList);
+        return LowCaseClassNamePageInfo;
     }
 
     @Override
-    public ClassName getClassNameDetail(ClassNameDetailVO ClassNameDetailVO) {
-        if (ClassNameDetailVO==null||ClassNameDetailVO.getId()==null) {
+    public ClassName getClassNameDetail(ClassNameDetailVO LowCaseClassNameDetailVO) {
+        if (LowCaseClassNameDetailVO==null||LowCaseClassNameDetailVO.getId()==null) {
             return null;
         };
-        ClassName ClassName=ClassNameMapper.selectByPrimaryKey(ClassNameDetailVO.getId());
-        return ClassName;
+        ClassName LowCaseClassName=LowCaseClassNameMapper.selectByPrimaryKey(LowCaseClassNameDetailVO.getId());
+        return LowCaseClassName;
     }
 
     @Override
-    public Integer saveClassName(ClassNameSaveVO ClassNameSaveVO) {
-        if (ClassNameSaveVO==null){
+    public Integer saveClassName(ClassNameSaveVO LowCaseClassNameSaveVO) {
+        if (LowCaseClassNameSaveVO==null){
             return 0;
         }
-        ClassName ClassName= JSONUtil.convert(ClassNameSaveVO,ClassName.class);
-        if (ClassName.getId()==null){
-            return ClassNameMapper.insertSelective(ClassName);
+        ClassName LowCaseClassName= JSONUtil.convert(LowCaseClassNameSaveVO,ClassName.class);
+        if (LowCaseClassName.getId()==null){
+            return LowCaseClassNameMapper.insertSelective(LowCaseClassName);
         }else {
-            ClassName.setModifyTime(new Date());
+            LowCaseClassName.setModifyTime(new Date());
             Example example=new Example(ClassName.class);
-            example.createCriteria().andEqualTo("id",ClassName.getId());
-            return ClassNameMapper.updateByExampleSelective(ClassName,example);
+            example.createCriteria().andEqualTo("id",LowCaseClassName.getId());
+            return LowCaseClassNameMapper.updateByExampleSelective(LowCaseClassName,example);
         }
     }
 
     @Override
-    public Integer deleteClassName(ClassNameDeleteVO ClassNameDeleteVO) {
-        if (ClassNameDeleteVO==null||ClassNameDeleteVO.getId()==null){
+    public Integer deleteClassName(ClassNameDeleteVO LowCaseClassNameDeleteVO) {
+        if (LowCaseClassNameDeleteVO==null||LowCaseClassNameDeleteVO.getId()==null){
             return 0;
         }
-        ClassName ClassName=new ClassName();
-        ClassName.setModifyTime(new Date());
-        ClassName.setIsDelete(ClassNameDeleteVO.getIsDelete());
+        ClassName LowCaseClassName=new ClassName();
+        LowCaseClassName.setModifyTime(new Date());
+        LowCaseClassName.setIsDelete(LowCaseClassNameDeleteVO.getIsDelete());
         Example example=new Example(ClassName.class);
-        example.createCriteria().andEqualTo("id",ClassNameDeleteVO.getId());
-        return ClassNameMapper.updateByExampleSelective(ClassName,example);
+        example.createCriteria().andEqualTo("id",LowCaseClassNameDeleteVO.getId());
+        return LowCaseClassNameMapper.updateByExampleSelective(LowCaseClassName,example);
     }
 }

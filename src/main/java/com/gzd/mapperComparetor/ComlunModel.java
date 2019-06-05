@@ -1,4 +1,4 @@
-package com.ucmed.common.util.databaseComparer;
+package com.gzd.mapperComparetor;
 
 /**
  * Created by YS-GZD-1495 on 2017/6/9.

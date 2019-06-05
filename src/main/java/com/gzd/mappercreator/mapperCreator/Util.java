@@ -66,6 +66,8 @@ public class Util {
 	public static void createServieceImpl(String packageName,String className){
 		String data = readFileByLines(MODELPATH+ "modelTemplate.txt");
 		data = data.replaceAll("packageName", packageName);
+		String lowCaseClassName=getLowCaseClassName(className);
+		data = data.replaceAll("LowCaseClassName", lowCaseClassName);
 		data = data.replaceAll("ClassName", className);
 		String FILENAME = className+"ServiceImpl.java";
 		File file = new File(PATH+"/serviceImpl/"+FILENAME);

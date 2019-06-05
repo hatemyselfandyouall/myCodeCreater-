@@ -23,6 +23,7 @@ public class ClassName implements Serializable{
 	//========== properties ==========
 
 	@Id
+	@GeneratedValue(generator="JDBC")
 PropertiesForChange
 
 

@@ -23,7 +23,7 @@ public class ClassNameController extends BasicController {
     ClassNameFacade LowCaseClassNameFacade;
 
     @ApiOperation(value = "tableRemark列表")
-    @RequestMapping(value = "/list",method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/list",method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public ResultVo<ClassName> getClassNameList(@RequestBody ClassNameListVO ClassNameListVO){
         ResultVo resultVo=new ResultVo();
         try {
@@ -36,14 +36,14 @@ public class ClassNameController extends BasicController {
                 resultVo.setResultDes("分页数据缺失");
             }
         }catch (Exception e){
-            resultVo.setResultDes("获取tableRemark列表异常，原因为:"+e);
+            resultVo.setResultDes("获取tableRemark列表异常");
             log.error("获取tableRemark列表异常",e);
         }
         return resultVo;
     }
 
     @ApiOperation(value = "tableRemark详情")
-    @RequestMapping(value = "/detail",method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/detail",method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public ResultVo<ClassName> getClassNameDetail(@RequestBody ClassNameDetailVO ClassNameDetailVO){
         ResultVo resultVo=new ResultVo();
         try {
@@ -55,7 +55,7 @@ public class ClassNameController extends BasicController {
             resultVo.setResultDes("获取详情失败");
         }
         } catch (Exception e){
-        resultVo.setResultDes("获取tableRemark详情异常，原因为:"+e);
+        resultVo.setResultDes("获取tableRemark详情异常");
         log.error("获取tableRemark详情异常",e);
     }
         return resultVo;
@@ -74,14 +74,14 @@ public class ClassNameController extends BasicController {
                 resultVo.setResultDes("tableRemark保存失败");
             }
         }catch (Exception e){
-                resultVo.setResultDes("接口保存异常，原因为:"+e);
+                resultVo.setResultDes("接口保存异常");
                 log.error("tableRemark保存异常",e);
             }
         return resultVo;
     }
 
     @ApiOperation(value = "tableRemark删除")
-    @RequestMapping(value = "/delete",method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE,produces = {"application/json;charset=UTF-8"})
     public ResultVo<ClassName> deleteClassName(@RequestBody ClassNameDeleteVO ClassNameDeleteVO){
         ResultVo resultVo=new ResultVo();
         try {
@@ -93,7 +93,7 @@ public class ClassNameController extends BasicController {
                 resultVo.setResultDes("tableRemark删除失败");
             }
         }catch (Exception e){
-            resultVo.setResultDes("tableRemark删除异常，原因为:"+e);
+            resultVo.setResultDes("tableRemark删除异常");
             log.error("tableRemark删除异常",e);
         }
         return resultVo;
