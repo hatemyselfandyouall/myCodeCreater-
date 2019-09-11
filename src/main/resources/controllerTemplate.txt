@@ -28,7 +28,7 @@ public class ClassNameController extends BasicController {
         ResultVo resultVo=new ResultVo();
         try {
             PageInfo<ClassName> LowCaseClassNameList=LowCaseClassNameFacade.getClassNameList(LowCaseClassNameListVO);
-            if(ClassNameList!=null){
+            ifLowCaseClassNameList!=null){
                 DataListResultDto<ClassName> dataListResultDto=new DataListResultDto<>(LowCaseClassNameList.getList(),(int)LowCaseClassNameList.getTotal());
                 resultVo.setResult(dataListResultDto);
                 resultVo.setSuccess(true);
@@ -48,7 +48,7 @@ public class ClassNameController extends BasicController {
         ResultVo resultVo=new ResultVo();
         try {
         ClassName LowCaseClassName=LowCaseClassNameFacade.getClassNameDetail(LowCaseClassNameDetailVO);
-        if(ClassName!=null){
+        if(LowCaseClassName!=null){
             resultVo.setResult(LowCaseClassName);
             resultVo.setSuccess(true);
         }else {
