@@ -22,7 +22,7 @@ public class Util {
 	 * 模板路径
 	 */
 	private final static String MODELPATH="";
-	private final static String PATH = "E://code";
+	private final static String PATH = "F://code";
 	//mybatis数据库where语句模板
 	private final static String COMPAREPARAMCOLUMNTEMPLATE = BLACK+BLACK+"<if test=\"param.fieldJava!=null\">\n"
 					+BLACK+BLACK+BLACK+"AND  fieldSql = #{param.fieldJava}\n"

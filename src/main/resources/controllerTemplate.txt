@@ -24,12 +24,12 @@ public class ClassNameController extends BasicController {
 
     @ApiOperation(value = "tableRemark列表")
     @RequestMapping(value = "/list",method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public ResultVo<ClassName> getClassNameList(@RequestBody ClassNameListVO ClassNameListVO){
+    public ResultVo<ClassName> getClassNameList(@RequestBody ClassNameListVO LowCaseClassNameListVO){
         ResultVo resultVo=new ResultVo();
         try {
-            PageInfo<ClassName> ClassNameList=LowCaseClassNameFacade.getClassNameList(ClassNameListVO);
+            PageInfo<ClassName> LowCaseClassNameList=LowCaseClassNameFacade.getClassNameList(LowCaseClassNameListVO);
             if(ClassNameList!=null){
-                DataListResultDto<ClassName> dataListResultDto=new DataListResultDto<>(ClassNameList.getList(),(int)ClassNameList.getTotal());
+                DataListResultDto<ClassName> dataListResultDto=new DataListResultDto<>(LowCaseClassNameList.getList(),(int)LowCaseClassNameList.getTotal());
                 resultVo.setResult(dataListResultDto);
                 resultVo.setSuccess(true);
             }else {
@@ -44,12 +44,12 @@ public class ClassNameController extends BasicController {
 
     @ApiOperation(value = "tableRemark详情")
     @RequestMapping(value = "/detail",method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public ResultVo<ClassName> getClassNameDetail(@RequestBody ClassNameDetailVO ClassNameDetailVO){
+    public ResultVo<ClassName> getClassNameDetail(@RequestBody ClassNameDetailVO LowCaseClassNameDetailVO){
         ResultVo resultVo=new ResultVo();
         try {
-        ClassName ClassName=LowCaseClassNameFacade.getClassNameDetail(ClassNameDetailVO);
+        ClassName LowCaseClassName=LowCaseClassNameFacade.getClassNameDetail(LowCaseClassNameDetailVO);
         if(ClassName!=null){
-            resultVo.setResult(ClassName);
+            resultVo.setResult(LowCaseClassName);
             resultVo.setSuccess(true);
         }else {
             resultVo.setResultDes("获取详情失败");
@@ -63,10 +63,10 @@ public class ClassNameController extends BasicController {
 
     @ApiOperation(value = "tableRemark保存")
     @RequestMapping(value = "/save",method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
-    public ResultVo<ClassName> saveClassName(@RequestBody ClassNameSaveVO ClassNameSaveVO){
+    public ResultVo<ClassName> saveClassName(@RequestBody ClassNameSaveVO LowCaseClassNameSaveVO){
         ResultVo resultVo=new ResultVo();
         try {
-            Integer flag = LowCaseClassNameFacade.saveClassName(ClassNameSaveVO);
+            Integer flag = LowCaseClassNameFacade.saveClassName(LowCaseClassNameSaveVO);
             if (1 == flag) {
                 resultVo.setResultDes("tableRemark保存成功");
                 resultVo.setSuccess(true);
@@ -82,10 +82,10 @@ public class ClassNameController extends BasicController {
 
     @ApiOperation(value = "tableRemark删除")
     @RequestMapping(value = "/delete",method = RequestMethod.DELETE,produces = {"application/json;charset=UTF-8"})
-    public ResultVo<ClassName> deleteClassName(@RequestBody ClassNameDeleteVO ClassNameDeleteVO){
+    public ResultVo<ClassName> deleteClassName(@RequestBody ClassNameDeleteVO LowCaseClassNameDeleteVO){
         ResultVo resultVo=new ResultVo();
         try {
-            Integer flag = LowCaseClassNameFacade.deleteClassName(ClassNameDeleteVO);
+            Integer flag = LowCaseClassNameFacade.deleteClassName(LowCaseClassNameDeleteVO);
             if (1 == flag) {
                 resultVo.setResultDes("tableRemark删除成功");
                 resultVo.setSuccess(true);

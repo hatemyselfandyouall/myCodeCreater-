@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class PDFCompareUtil {
 
-	private static String LOCAL_URL="jdbc:mysql://192.168.1.14/workflow?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
-	private static String LOCAL_USERNAME="workflow";
+	private static String LOCAL_URL="jdbc:mysql://10.85.94.191/task_mq?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
+	private static String LOCAL_USERNAME="report";
 	private static String LOCAL_PASSWORD="Epsoft2019";
-	private static String WORK_URL="jdbc:mysql://10.85.94.191:3306/workflow?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
-	private static String WORK_USERNAME="workflow";
-	private static String WORK_PASSWORD="Epsoft2019";
+	private static String WORK_URL="jdbc:mysql://10.85.128.47:3306/report?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
+	private static String WORK_USERNAME="report";
+	private static String WORK_PASSWORD="Report6";
 
 	public static void compare() throws IOException {
 
@@ -80,21 +80,21 @@ public class PDFCompareUtil {
 					}
 				}else{
 					for(int i=0;i<localComlunModelList.size();i++){
-						if(!localComlunModelList.get(i).getName().equals(localComlunModelList.get(i).getName())) {
+						if(!localComlunModelList.get(i).getName().equals(workComlunModelList.get(i).getName())) {
 							System.out.println("异常1:位于表:"+locolTables.getString("TABLE_NAME")+",字段"+localComlunModelList.get(i).getName());
 							continue ;
 						}
-						if(!localComlunModelList.get(i).getType().equals(localComlunModelList.get(i).getType())){
+						if(!localComlunModelList.get(i).getType().equals(workComlunModelList.get(i).getType())){
 
 							System.out.println("异常2:位于表:"+locolTables.getString("TABLE_NAME")+",字段"+localComlunModelList.get(i).getName());
 							continue;
 						}
-						if(!localComlunModelList.get(i).getSize().equals(localComlunModelList.get(i).getSize())){
+						if(!localComlunModelList.get(i).getSize().equals(workComlunModelList.get(i).getSize())){
 
 							System.out.println("异常3:位于表:"+locolTables.getString("TABLE_NAME")+",字段"+localComlunModelList.get(i).getName());
 							continue;
 						}
-						if(!localComlunModelList.get(i).getAbleNull().equals(localComlunModelList.get(i).getAbleNull())){
+						if(!localComlunModelList.get(i).getAbleNull().equals(workComlunModelList.get(i).getAbleNull())){
 
 							System.out.println("异常5:位于表:"+locolTables.getString("TABLE_NAME")+",字段"+localComlunModelList.get(i).getName());
 							continue;
