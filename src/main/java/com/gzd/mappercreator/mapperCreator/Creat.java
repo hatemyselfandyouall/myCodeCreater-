@@ -17,8 +17,8 @@ public class Creat {
 //	private static String packageName  ="com.zjrc.ssc.manager.bean.entity";
 	private static String packageName  ="com.insigma.facade.po";
 	private static String jdbcurl  ="192.168.1.14";
-	private static String schemaName  = "report";
-	private static String user = "report";
+	private static String schemaName  = "datacenter";
+	private static String user = "datacenter";
 	private static String pass = "Epsoft2019";
 	private static Map<String,Object> tableMap=null ;
 	//需要导出的表名放这里，全部导出留空保证tableMap 为null
