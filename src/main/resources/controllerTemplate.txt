@@ -17,7 +17,7 @@ import star.vo.result.ResultVo;
 @RequestMapping("LowCaseClassName")
 @Api(tags ="tableRemark管理")
 @Slf4j
-public class ClassNameController extends BasicController {
+public class ClassNameController  {
 
     @Autowired
     ClassNameFacade LowCaseClassNameFacade;
@@ -28,7 +28,7 @@ public class ClassNameController extends BasicController {
         ResultVo resultVo=new ResultVo();
         try {
             PageInfo<ClassName> LowCaseClassNameList=LowCaseClassNameFacade.getClassNameList(LowCaseClassNameListVO);
-            ifLowCaseClassNameList!=null){
+            if(LowCaseClassNameList!=null){
                 DataListResultDto<ClassName> dataListResultDto=new DataListResultDto<>(LowCaseClassNameList.getList(),(int)LowCaseClassNameList.getTotal());
                 resultVo.setResult(dataListResultDto);
                 resultVo.setSuccess(true);

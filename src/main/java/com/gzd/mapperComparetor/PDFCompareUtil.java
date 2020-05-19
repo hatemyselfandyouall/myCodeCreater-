@@ -14,12 +14,13 @@ import java.util.List;
  */
 public class PDFCompareUtil {
 
-	private static String LOCAL_URL="jdbc:mysql://10.85.94.191/task_mq?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
-	private static String LOCAL_USERNAME="report";
+	private static String WORK_URL="jdbc:mysql://10.85.159.202:3308/openapi?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
+	private static String WORK_USERNAME="openapi";
+	private static String WORK_PASSWORD="Openapi53";
+	private static String LOCAL_URL="jdbc:mysql://10.85.94.189:3306/openapi?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
+	private static String LOCAL_USERNAME="openapi";
 	private static String LOCAL_PASSWORD="Epsoft2019";
-	private static String WORK_URL="jdbc:mysql://10.85.128.47:3306/report?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
-	private static String WORK_USERNAME="report";
-	private static String WORK_PASSWORD="Report6";
+
 
 	public static void compare() throws IOException {
 
@@ -48,7 +49,6 @@ public class PDFCompareUtil {
 						workCom.setAbleNull(workRet.getString("NULLABLE"));
 						localComlunModelList.add(localCom);
 						workComlunModelList.add(workCom);
-
 //						System.out.println(colRet.getString("COLUMN_NAME") + " " + colRet.getString("TYPE_NAME") + " " + colRet.getString("COLUMN_SIZE") + " " + colRet.getString("DECIMAL_DIGITS") + " " +
 //								colRet.getString("NULLABLE")+ " "+workRet.getString("COLUMN_NAME") + " " + workRet.getString("TYPE_NAME") + " " + workRet.getString("COLUMN_SIZE") + " " + workRet.getString("DECIMAL_DIGITS") + " " +
 //								workRet.getString("NULLABLE"));

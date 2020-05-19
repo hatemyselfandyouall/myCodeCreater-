@@ -14,9 +14,11 @@ import java.lang.String;
 import java.lang.Integer;
 import java.util.Date;
 import java.util.List;
+import lombok.experimental.Accessors;
 
 
 @Data
+@Accessors(chain = true)
 public class ClassName implements Serializable{
 
 

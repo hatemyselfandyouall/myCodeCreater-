@@ -15,11 +15,11 @@ import java.util.Properties;
 
 public class Creat {
 //	private static String packageName  ="com.zjrc.ssc.manager.bean.entity";
-	private static String packageName  ="com.insigma.facade.po";
-	private static String jdbcurl  ="192.168.1.14";
-	private static String schemaName  = "datacenter";
-	private static String user = "datacenter";
-	private static String pass = "Epsoft2019";
+	private static String packageName  ="com.gzd.po";
+	private static String jdbcurl  ="139.129.221.41";
+	private static String schemaName  = "Exam";
+	private static String user = "exam";
+	private static String pass = "12345678";
 	private static Map<String,Object> tableMap=null ;
 	//需要导出的表名放这里，全部导出留空保证tableMap 为null
 	static {

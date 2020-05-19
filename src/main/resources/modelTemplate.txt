@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
+import org.springframework.beans.BeanUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -40,7 +41,8 @@ public class ClassNameServiceImpl implements ClassNameFacade {
         if (LowCaseClassNameSaveVO==null){
             return 0;
         }
-        ClassName LowCaseClassName= JSONUtil.convert(LowCaseClassNameSaveVO,ClassName.class);
+        ClassName LowCaseClassName= new ClassName();
+        BeanUtils.copyProperties(LowCaseClassNameSaveVO,LowCaseClassName);
         if (LowCaseClassName.getId()==null){
             return LowCaseClassNameMapper.insertSelective(LowCaseClassName);
         }else {
