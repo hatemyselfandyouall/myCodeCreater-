@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class PDFCompareUtil {
 
-	private static String WORK_URL="jdbc:mysql://10.85.159.202:3308/openapi?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
+	private static String WORK_URL="jdbc:mysql://10.85.159.202:3345/openapi?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
 	private static String WORK_USERNAME="openapi";
-	private static String WORK_PASSWORD="Openapi53";
+	private static String WORK_PASSWORD="Openapi14";
 	private static String LOCAL_URL="jdbc:mysql://10.85.94.189:3306/openapi?jdbcCompliantTruncation=false&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT";
 	private static String LOCAL_USERNAME="openapi";
 	private static String LOCAL_PASSWORD="Epsoft2019";
@@ -42,12 +42,14 @@ public class PDFCompareUtil {
 						localCom.setName(colRet.getString("COLUMN_NAME"));
 						localCom.setType(colRet.getString("TYPE_NAME"));
 						localCom.setSize(colRet.getString("COLUMN_SIZE"));
+                        localCom.setDefaultValue(colRet.getString("COLUMN_DEF"));
 						localCom.setAbleNull(colRet.getString("NULLABLE"));
 						workCom.setName(workRet.getString("COLUMN_NAME"));
 						workCom.setType(workRet.getString("TYPE_NAME"));
 						workCom.setSize(workRet.getString("COLUMN_SIZE"));
 						workCom.setAbleNull(workRet.getString("NULLABLE"));
-						localComlunModelList.add(localCom);
+                        localCom.setDefaultValue(colRet.getString("COLUMN_DEF"));
+                        localComlunModelList.add(localCom);
 						workComlunModelList.add(workCom);
 //						System.out.println(colRet.getString("COLUMN_NAME") + " " + colRet.getString("TYPE_NAME") + " " + colRet.getString("COLUMN_SIZE") + " " + colRet.getString("DECIMAL_DIGITS") + " " +
 //								colRet.getString("NULLABLE")+ " "+workRet.getString("COLUMN_NAME") + " " + workRet.getString("TYPE_NAME") + " " + workRet.getString("COLUMN_SIZE") + " " + workRet.getString("DECIMAL_DIGITS") + " " +
@@ -75,7 +77,8 @@ public class PDFCompareUtil {
 				if(workComlunModelList.size()< localComlunModelList.size()){
 					for(int i=0;i<localComlunModelList.size();i++){
 						if(!workComlunModelList.contains(localComlunModelList.get(i))){
-							System.out.println("缺失字段:位于表:"+locolTables.getString("TABLE_NAME")+",字段"+localComlunModelList.get(i).getName());
+							System.out.println("缺失字段:位于表:"+locolTables.getString("TABLE_NAME")+",字段"+localComlunModelList.get(i).getName()+",类型"
+                                    +localComlunModelList.get(i).getType()+"大小"+localComlunModelList.get(i).getSize()+"默认值"+localComlunModelList.get(i).getDefaultValue());
 						}
 					}
 				}else{

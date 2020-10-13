@@ -8,6 +8,7 @@ public class ComlunModel implements  Comparable{
     private String type;
     private String size;
     private String ableNull;
+    private String defaultValue;
 
     public String getName() {
         return name;
@@ -59,5 +60,13 @@ public class ComlunModel implements  Comparable{
     }
     public boolean equals(ComlunModel o){
         return this.getName().equals(o.getName());
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
     }
 }
